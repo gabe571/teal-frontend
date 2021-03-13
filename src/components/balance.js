@@ -1,0 +1,18 @@
+import react from 'react'
+
+const balance = () => {
+
+
+    return (
+         <div className='totals'>
+        <h2 className='subtitle'> Current Balance </h2>
+        <h3> Balance </h3>
+        <div>
+            <h3 className='subtitle'> Credit </h3>
+            <h4> credit </h4>
+        </div>
+    </div>
+     )
+    }
+    
+    export default balance
