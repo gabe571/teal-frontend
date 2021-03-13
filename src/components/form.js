@@ -37,6 +37,7 @@ useEffect(() => {
     getBalance()
 }, [list])
 
+//clear transaction list
 const clearBudget = () => {
     setList([])
     setCredit(null)
@@ -80,7 +81,7 @@ return (
         </div>
     </form>
     <button className='button is-danger' onClick={clearBudget}> Clear </button>
-            <h2 className='subtite'> Transaction History </h2>
+            <h2 className='list'> Transaction History </h2>
            {list.map(i => {
                return (
                    <table className='table'>
