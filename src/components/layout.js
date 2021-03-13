@@ -1,6 +1,6 @@
 import react from 'react'
 import Form from './Form'
-import Transactions from './Transactions'
+import Transaction from './Transaction'
 import Balance from './Balance'
 
 const layout = () => {
@@ -9,7 +9,7 @@ const layout = () => {
 return (
     <div>
       <Form />
-      <Transactions />
+      <Transaction />
       <Balance />
     </div>
  )

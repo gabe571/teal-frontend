@@ -1,8 +1,8 @@
 import react, {useState, useEffect} from 'react'
 
-const Transactions = () => {
+const Transaction = () => {
 
-    const [transactions, setTransactions] = useState({description: '', amount: ''}); 
+    const [transaction, setTransaction] = useState({description: '', amount: ''}); 
     const [list, setList] = useState([]);
 
     return (
@@ -13,4 +13,4 @@ const Transactions = () => {
      )
     }
     
-    export default Transactions
+    export default Transaction
