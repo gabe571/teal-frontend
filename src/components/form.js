@@ -4,11 +4,18 @@ import Transaction from './Transaction'
 const Form = () => {
 
 //initial state
-    const [transaction, setTransaction] = useState({description: '', amount: ''}); 
-    const [credit, setCredit] = useState('');
-    const [debit, setDebit] = useState('');
-    const [list, setList] = useState([]);
-    const [balance, setBalance] = useState('');
+const [transaction, setTransaction] = useState({
+    description: '',
+    amount: ''
+  })
+  const [list, setList] = useState(
+    JSON.parse(localStorage.getItem('list')) || []
+  )
+  const [balance, setBalance] = useState('')
+  const [credit, setCredit] = useState(
+    JSON.parse(localStorage.getItem('credit'))
+  )
+  const [debit, setDebit] = useState(JSON.parse(localStorage.getItem('debit')))
 
     //updates based onChange value
 const updateForm = (e) => {
@@ -35,7 +42,11 @@ const getBalance = () => {
 
 useEffect(() => {
     getBalance()
-}, [list])
+    localStorage.setItem('list', JSON.stringify(list))
+    localStorage.setItem('credit', JSON.stringify(credit))
+    localStorage.setItem('debit', JSON.stringify(debit))
+  }, [list])
+
 
 //clear transaction list
 const clearBudget = () => {
@@ -81,16 +92,14 @@ return (
         </div>
     </form>
     <button className='button is-danger' onClick={clearBudget}> Clear </button>
-            <h2 className='list'> Transaction History </h2>
+            <h2 className='trans-history'> Transaction History </h2>
            {list.map(i => {
                return (
-                   <table className='table'>
-                       <tbody key={i.description}>
-                        <tr>{i.description}
-                        <td> ${i.amount}</td>
-                        </tr>
-                       </tbody>
-                   </table>
+                   <div className='trans'>
+                       <ul  key={i.description}>
+                        <li className='list' >{i.description} ${i.amount}</li>
+                   </ul>
+                   </div>
                )
            })}
             <div className='totals'>
