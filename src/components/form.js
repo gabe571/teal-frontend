@@ -5,6 +5,11 @@ const Form = () => {
 
 
     const [transaction, setTransaction] = useState({description: '', amount: ''}); 
+    const [credit, setCredit] = useState('');
+    const [debit, setDebit] = useState('');
+    const [list, setList] = useState([]);
+
+    //updates based onChange value
 const updateForm = (e) => {
     setTransaction({
         ...transaction,
@@ -13,10 +18,21 @@ const updateForm = (e) => {
         })
 }
 
+const plusMinus = () => {
+    transaction.amount > 0 ? setCredit(credit + transaction.amount) : setDebit(debit + transaction.amount)
+}
+
 return (
     <div>
     <h2> Enter an Item </h2>
-    <form>
+    <form
+    onSubmit={e => {
+        e.preventDefault()
+        setList([transaction, ...list])
+        plusMinus()
+        setTransaction({ description: '', amount: ''})
+    }}
+    >
        <div>
            <input 
            type='text' 
