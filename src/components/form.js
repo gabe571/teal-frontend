@@ -3,7 +3,7 @@ import Transaction from './Transaction'
 
 const Form = () => {
 
-
+//initial state
     const [transaction, setTransaction] = useState({description: '', amount: ''}); 
     const [credit, setCredit] = useState('');
     const [debit, setDebit] = useState('');
@@ -19,12 +19,14 @@ const updateForm = (e) => {
         })
 }
 
+//identify if transaction is income/expense
+
 const plusMinus = () => {
     transaction.amount > 0
      ? setCredit(credit + transaction.amount)
       : setDebit(debit + transaction.amount)
 }
-
+// updates balance after transaction is added
 const getBalance = () => {
     const amounts = list.map(i => i.amount)
     const money = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
@@ -35,6 +37,11 @@ useEffect(() => {
     getBalance()
 }, [list])
 
+const clearBudget = () => {
+    setList([])
+    setCredit(null)
+    setDebit(null)
+}
 
 return (
     
@@ -72,7 +79,7 @@ return (
             <button type='submit' className='button is-primary'> Submit </button>
         </div>
     </form>
-    <button className='button is-danger'> Clear </button>
+    <button className='button is-danger' onClick={clearBudget}> Clear </button>
             <h2 className='subtite'> Transaction History </h2>
            {list.map(i => {
                return (
