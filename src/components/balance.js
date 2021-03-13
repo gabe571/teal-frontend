@@ -1,4 +1,4 @@
-import react from 'react'
+import react, {useState, useEffect} from 'react'
 
 const balance = () => {
 
@@ -10,6 +10,10 @@ const balance = () => {
         <div>
             <h3 className='subtitle'> Credit </h3>
             <h4> credit </h4>
+        </div>
+        <div>
+            <h3 className='subtitle'> Debit </h3>
+            <h2> debit </h2>
         </div>
     </div>
      )

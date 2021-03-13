@@ -1,6 +1,6 @@
-import react from 'react'
+import react, {useState, useEffect} from 'react'
 
-const form = () => {
+const Form = () => {
 
 
 
@@ -22,4 +22,4 @@ return (
  )
 }
 
-export default form
+export default Form

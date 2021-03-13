@@ -1,7 +1,7 @@
 import react from 'react'
-import Form from './form'
-import Transactions from './transactions'
-import Balance from './balance'
+import Form from './Form'
+import Transactions from './Transactions'
+import Balance from './Balance'
 
 const layout = () => {
 

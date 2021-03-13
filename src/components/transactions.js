@@ -1,7 +1,8 @@
-import react from 'react'
+import react, {useState, useEffect} from 'react'
 
-const transactions = () => {
+const Transactions = () => {
 
+    const [transactions, setTransactions] = useState({description: '', amount: ''}); 
 
     return (
         <div>
@@ -11,4 +12,4 @@ const transactions = () => {
      )
     }
     
-    export default transactions
+    export default Transactions
