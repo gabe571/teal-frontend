@@ -19,7 +19,9 @@ const updateForm = (e) => {
 }
 
 const plusMinus = () => {
-    transaction.amount > 0 ? setCredit(credit + transaction.amount) : setDebit(debit + transaction.amount)
+    transaction.amount > 0
+     ? setCredit(credit + transaction.amount)
+      : setDebit(debit + transaction.amount)
 }
 
 return (
