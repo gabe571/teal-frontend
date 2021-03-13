@@ -8,6 +8,7 @@ const Form = () => {
     const [credit, setCredit] = useState('');
     const [debit, setDebit] = useState('');
     const [list, setList] = useState([]);
+    const [balance, setBalance] = useState('');
 
     //updates based onChange value
 const updateForm = (e) => {
@@ -24,7 +25,19 @@ const plusMinus = () => {
       : setDebit(debit + transaction.amount)
 }
 
+const getBalance = () => {
+    const amounts = list.map(i => i.amount)
+    const money = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
+    setBalance(money) 
+}
+
+useEffect(() => {
+    getBalance()
+}, [list])
+
+
 return (
+    
     <div>
     <h2> Enter an Item </h2>
     <form
@@ -59,6 +72,27 @@ return (
             <button type='submit' className='button is-primary'> Submit </button>
         </div>
     </form>
+    <button className='button is-danger'> Clear </button>
+            <h2 className='subtite'> Transaction History </h2>
+           {list.map(i => {
+               return (
+                   <table className='table'>
+                       <tbody key={i.description}>
+                        <tr>{i.description}
+                        <td> ${i.amount}</td>
+                        </tr>
+                       </tbody>
+                   </table>
+               )
+           })}
+            <div className='totals'>
+        <h2 className='subtitle'> Current Balance </h2>
+        <h3> ${balance} </h3>
+            <h3 className='subtitle'> Credit </h3>
+            <h4> ${credit} </h4>
+            <h3 className='subtitle'> Debit </h3>
+            <h2> ${debit} </h2>
+        </div>
     </div>
  )
 }
