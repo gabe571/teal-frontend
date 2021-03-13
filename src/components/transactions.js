@@ -3,6 +3,7 @@ import react, {useState, useEffect} from 'react'
 const Transactions = () => {
 
     const [transactions, setTransactions] = useState({description: '', amount: ''}); 
+    const [list, setList] = useState([]);
 
     return (
         <div>

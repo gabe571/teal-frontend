@@ -1,7 +1,10 @@
 import react, {useState, useEffect} from 'react'
 
-const balance = () => {
+const Balance = () => {
 
+    const [balanace, setBalance] = useState('');
+    const [credit, setCredit] = useState('');
+    const [debit, setDebit] = useState('');
 
     return (
          <div className='totals'>
@@ -19,4 +22,4 @@ const balance = () => {
      )
     }
     
-    export default balance
+    export default Balance
