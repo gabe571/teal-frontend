@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import NavigationBar from './NavigationBar'
 
  const Profile = () => {
 
@@ -26,19 +27,20 @@ import React, { useState } from 'react'
     handleProfileSubmit()
     return (
         <>
+        <NavigationBar />
          <div>
              <div className="profile">
-                 <h1> Profile </h1>
+                 <h1 className='profile-title'> Profile </h1>
                  <br />
                  <br />
                  <h1 className="name"> {name} </h1>
-                 <input type="text" placeholder="Name" className="input-name" onChange={e => setName(e.target.value)} />
+                 <input type="text" placeholder="Name" className="input-form"  onChange={e => setName(e.target.value)} />
                  <br />
                  <h1 className="e-mail">  {email}</h1>
-                 <input type="text" placeholder="Email" onChange={e => setEmail(e.target.value)} />
+                 <input type="text" placeholder="Email" className="input-form" onChange={e => setEmail(e.target.value)} />
                  <br />
                  <h1 className="phone-number"> {phone} </h1>
-                 <input type="text" placeholder="Phone" onChange={e => setPhone(e.target.value)} />
+                 <input type="text" placeholder="Phone" className="input-form" onChange={e => setPhone(e.target.value)} />
                  <br />
                  <p className="address">
                      <h1> Address: </h1>
@@ -46,12 +48,13 @@ import React, { useState } from 'react'
                      <h1> {address2}</h1>
                      <h1> {addressCity} </h1>
                      <h1> {addressZip} </h1>
-                     <input type="text" placeholder="Address Line One" onChange={e => setAddress1(e.target.value)} />
-                     <input type="text" placeholder="Address Line Two" onChange={e => setAddress2(e.target.value)} />
-                     <input type="text" placeholder="City" onChange={e => setAddressCity(e.target.value)} />
-                     <input type="text" placeholder="Zipcode" onChange={e => setAddressZip(e.target.value)} />
+                     <input type="text" placeholder="Address Line One"  className="input-form" onChange={e => setAddress1(e.target.value)} />
+                     <input type="text" placeholder="Address Line Two" className="input-form" onChange={e => setAddress2(e.target.value)} />
+                     <input type="text" placeholder="City" className="input-form" onChange={e => setAddressCity(e.target.value)} />
+                     <input type="text" placeholder="Zipcode" className="input-form" onChange={e => setAddressZip(e.target.value)} />
                  </p>
-                 <button className="button" onClick={handleProfileSubmit}>Submit</button>
+                 <br />
+                 <button className='button is-primary' onClick={handleProfileSubmit}>Submit</button>
              </div>
          </div>
         </>

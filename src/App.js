@@ -4,6 +4,7 @@ import Profile from './components/Profile'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import './App.css';
 import React from 'react';
+import Teal from './components/Teal'
 
 class App extends React.Component {
 
@@ -12,6 +13,7 @@ class App extends React.Component {
       
 
     <div className="App">
+      <Teal />
   <Switch>
   <Route exact path='/layout' component={layout}/>
   <Route path="/Profile" component={Profile}/>

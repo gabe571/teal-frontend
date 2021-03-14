@@ -34,11 +34,12 @@ const plusMinus = () => {
       : setDebit(debit + transaction.amount)
 }
 // updates balance after transaction is added
+
 const getBalance = () => {
-    const amounts = list.map(i => i.amount)
-    const money = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
-    setBalance(money) 
-}
+    const amounts = list.map(i => i.amount);
+    const money = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2);
+    setBalance(money)
+  }
 
 useEffect(() => {
     getBalance()
@@ -68,7 +69,7 @@ return (
                return (
                    <div className='trans'>
                        <ul  key={i.description}>
-                        <li className='list' >{i.description} ${i.amount}</li>
+                        <li className='list' >{i.description} ${parseInt(i.amount)}</li>
                    </ul>
                    </div>
                )
@@ -85,7 +86,7 @@ return (
        <div> 
            <input 
            type='text' 
-           className="input" 
+           className="input-trans" 
            placeholder='Enter Transaction'
            value={Transaction.description}
            name='description'
@@ -93,10 +94,10 @@ return (
            >
            </input>
         </div> 
-        <div className='tran-amount'>
+        <div>
         <input 
         type='number'
-         className='input' 
+         className='input-trans' 
          placeholder='Enter Amount'
          name='amount'
          value={transaction.amount}
