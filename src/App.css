@@ -22,18 +22,34 @@
 }
 
 .totals {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: absolute;
-  top: 50px;
-  right: 50px;
+  text-align: center;
 }
 
-.input {
-  margin-bottom: 10px;
-  width: 50%;
-}
 
 .button {
   margin-bottom: 30px;
+}
+
+.trans-input {
+  text-align: center;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.input {
+  text-align: center;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.enter-item {
+  text-align: center;
+}
+
+.trans-history {
+  text-align: center;
+}
+
+.button-container {
+  margin-left: 25%;
 }

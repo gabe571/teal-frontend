@@ -58,7 +58,22 @@ const clearBudget = () => {
 return (
     
     <div>
-    <h2> Enter an Item </h2>
+        <div className='totals'>
+        <h2 className='balance'> Current Balance </h2>
+        <h3> ${balance} </h3>
+            <h4> Credit: ${credit} Debit: ${debit} </h4>
+        </div>
+         <h2 className='trans-history'> Transaction History </h2>
+           {list.map(i => {
+               return (
+                   <div className='trans'>
+                       <ul  key={i.description}>
+                        <li className='list' >{i.description} ${i.amount}</li>
+                   </ul>
+                   </div>
+               )
+           })}
+        <h2 className='enter-item'> Enter an Item </h2>
     <form
     onSubmit={e => {
         e.preventDefault()
@@ -67,7 +82,7 @@ return (
         setTransaction({ description: '', amount: ''})
     }}
     >
-       <div>
+       <div> 
            <input 
            type='text' 
            className="input" 
@@ -78,6 +93,7 @@ return (
            >
            </input>
         </div> 
+        <div className='tran-amount'>
         <input 
         type='number'
          className='input' 
@@ -87,29 +103,13 @@ return (
          onChange={updateForm}
          >
         </input>
-        <div>
+        </div>
+        <br/>
+        <div className='button-container'>
             <button type='submit' className='button is-primary'> Submit </button>
+            <button className='button is-danger' onClick={clearBudget}> Clear </button>
         </div>
     </form>
-    <button className='button is-danger' onClick={clearBudget}> Clear </button>
-            <h2 className='trans-history'> Transaction History </h2>
-           {list.map(i => {
-               return (
-                   <div className='trans'>
-                       <ul  key={i.description}>
-                        <li className='list' >{i.description} ${i.amount}</li>
-                   </ul>
-                   </div>
-               )
-           })}
-            <div className='totals'>
-        <h2 className='subtitle'> Current Balance </h2>
-        <h3> ${balance} </h3>
-            <h3 className='subtitle'> Credit </h3>
-            <h4> ${credit} </h4>
-            <h3 className='subtitle'> Debit </h3>
-            <h2> ${debit} </h2>
-        </div>
     </div>
  )
 }
