@@ -7,3 +7,6 @@
 Teal is a budget contious app designed to help users add transactions via localStorage, by keeping track of any income and subtracting any expenses it lets you know where you are finicially.
 
 
+# Profile
+
+Stores your peronsal information, username, e-mail, phone number and address.
