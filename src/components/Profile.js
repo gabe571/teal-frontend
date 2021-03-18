@@ -54,7 +54,7 @@ import NavigationBar from './NavigationBar'
                      <input type="text" placeholder="Zipcode" className="input-form" onChange={e => setAddressZip(e.target.value)} />
                  </p>
                  <br />
-                 <button className='button is-primary' onClick={handleProfileSubmit}>Submit</button>
+                 <button className='button is-primary' onSubmit={handleProfileSubmit}>Submit</button>
              </div>
          </div>
         </>

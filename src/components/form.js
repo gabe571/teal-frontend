@@ -1,6 +1,7 @@
 import react, {useState, useEffect} from 'react'
 import Transaction from './Transaction'
 
+
 const Form = () => {
 
 //initial state
@@ -62,12 +63,15 @@ return (
         <h3> ${balance} </h3>
             <h4> Income: ${income} Expense: ${expense} </h4>
         </div>
+        < br />
+        < br />
+        < br />
          <h2 className='trans-history'> Transaction History </h2>
            {list.map(i => {
                return (
                    <div className='trans'>
                        <ul  key={i.description}>
-                        <li className='list' >{i.description} ${parseInt(i.amount)}</li>
+                    {i.description} ${parseInt(i.amount)}
                    </ul>
                    </div>
                )
