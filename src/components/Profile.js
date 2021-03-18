@@ -9,7 +9,7 @@ import NavigationBar from './NavigationBar'
     const [address1, setAddress1] = useState('1234 test Line One');
     const [address2, setAddress2] = useState('4567 test Line Two');
     const [addressCity, setAddressCity] = useState('Tacoma, WA ');
-    const [addressZip, setAddressZip] = useState('98408 ');
+    const [addressZip, setAddressZip] = useState('98408');
    
    
     const handleProfileSubmit = (e) => {

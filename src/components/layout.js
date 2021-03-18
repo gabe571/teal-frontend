@@ -3,8 +3,7 @@ import NavigationBar from './NavigationBar'
 import Form from './Form'
 
 const layout = () => {
-
-
+  
 return (
     <div>
       <NavigationBar />

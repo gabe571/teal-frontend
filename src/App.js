@@ -6,8 +6,10 @@ import './App.css';
 import React from 'react';
 import Teal from './components/Teal'
 
-class App extends React.Component {
 
+class App extends React.Component {
+  
+  
   render() {
     return (
       
