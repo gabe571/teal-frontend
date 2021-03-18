@@ -12,8 +12,8 @@ const [transaction, setTransaction] = useState({
     JSON.parse(localStorage.getItem('list')) || []
   )
   const [balance, setBalance] = useState('')
-  const [credit, setCredit] = useState(
-    JSON.parse(localStorage.getItem('credit'))
+  const [income, setIncome] = useState(
+    JSON.parse(localStorage.getItem('income'))
   )
   const [expense, setExpense] = useState(JSON.parse(localStorage.getItem('expense')))
 
@@ -30,7 +30,7 @@ const updateForm = (e) => {
 
 const plusMinus = () => {
     transaction.amount > 0
-     ? setCredit(credit + transaction.amount)
+     ? setIncome(income + transaction.amount)
       : setExpense(expense + transaction.amount)
 }
 // updates balance after transaction is added
@@ -44,7 +44,7 @@ const getBalance = () => {
 useEffect(() => {
     getBalance()
     localStorage.setItem('list', JSON.stringify(list))
-    localStorage.setItem('credit', JSON.stringify(credit))
+    localStorage.setItem('income', JSON.stringify(income))
     localStorage.setItem('expense', JSON.stringify(expense))
   }, [list])
 
@@ -52,7 +52,7 @@ useEffect(() => {
 //clear transaction list
 const clearBudget = () => {
     setList([])
-    setCredit(null)
+    setIncome(null)
     setExpense(null)
 }
 
@@ -62,7 +62,7 @@ return (
         <div className='totals'>
         <h2 className='balance'> Current Balance </h2>
         <h3> ${balance} </h3>
-            <h4> Credit: ${credit} Expense: ${expense} </h4>
+            <h4> Income: ${income} Expense: ${expense} </h4>
         </div>
          <h2 className='trans-history'> Transaction History </h2>
            {list.map(i => {
