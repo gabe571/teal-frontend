@@ -1,10 +1,8 @@
 import React from 'react'
-
+import { NavLink } from 'react-router-dom';
 const Teal = () => {
     return (
-        <h1 className = "teal">
-            TEAL     
-        </h1>
+        <NavLink className='teal' to='/layout' exact>TEAL</NavLink>
     )
 }
 
