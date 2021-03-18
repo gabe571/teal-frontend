@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NavigationBar from './NavigationBar'
  
 export default class Profile extends Component {
     documentData;
@@ -7,12 +8,16 @@ export default class Profile extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.state = {
-            title: '',
-            description: '',
-            price: ''
+            name: '',
+            email: '',
+            phone: '',
+            address1: '',
+            address2: '',
+            addresscitystate: '',
+            addresszip: ''
         }
     }
- 
+
 handleChange= (e)=> {
     this.setState({[e.target.name]:e.target.value});
 }
@@ -28,15 +33,23 @@ componentDidMount() {
  
     if (localStorage.getItem('document')) {
         this.setState({
-            title: this.documentData.title,
-           description: this.documentData.description,
-           price: this.documentData.price
+            name: this.documentData.name,
+           phone: this.documentData.phone,
+           email: this.documentData.email,
+           address1: this.documentData.address1,
+           address2: this.documentData.address2,
+           addresscitystate: this.documentData.addresscitystate,
+           addresszip: this.documentData.addresszip,
     })
 } else {
     this.setState({
-        title: '',
-        description: '',
-        price: ''
+            name: '',
+            phone: '',
+            email: '',
+            address1: '',
+            address2: '',
+            addresscitystate: '',
+            addresszip: ''
     })
 }
 }
@@ -44,88 +57,46 @@ componentDidMount() {
 render() {
     return (
         <div className="container">
+            <NavigationBar />
+            <div>
+            <h1 className='profile-title'> Profile </h1>
+            </div>
             <form onSubmit={this.handleFormSubmit}>
                 <div className="form-group">
-                    <label>Title</label>
-                    <input type="text" name="title" className="form-control" value={this.state.title} onChange={this.handleChange} />
+                    <input type="text" name="name" className="form-control" value={this.state.name} onChange={this.handleChange} />
+                    <label>Name</label>
                 </div>
                 <div className="form-group">
-                    <label>Description</label>
-                    <input type="text" name="description" className="form-control" value={this.state.description} onChange={this.handleChange} />
+                    <input type="text" name="phone" className="form-control" 
+                    value={this.state.phone} onChange={this.handleChange} />
+                     <label>Phone</label>
                 </div>
                 <div className="form-group">
-                    <label>Price</label>
-                    <input type="number" name="price" className="form-control" value={this.state.price} onChange={this.handleChange} />
+                    <input type="text" name="email" className="form-control" value={this.state.email} onChange={this.handleChange} />
+                    <label>Email</label>
                 </div>
-                <button type="submit" className="btn btn-primary btn-block">Submit</button>
+                <div className="form-group">
+                    <input type="text" name="address1" className="form-control" value={this.state.address1} onChange={this.handleChange} />
+                    <label>Address 1</label>
+                </div>
+                <div className="form-group">
+                    <input type="text" name="address2" className="form-control" value={this.state.address2} onChange={this.handleChange} />
+                    <label>Address 2</label>
+                </div>
+                <div className="form-group">
+                    <input type="text" name="addresscitystate" className="form-control" value={this.state.addresscitystate} onChange={this.handleChange} />
+                    <label>City, State</label>
+                </div>
+                <div className="form-group">
+                    <input type="text" name="addresszip" className="form-control" value={this.state.addresszip} onChange={this.handleChange} />
+                    <label>Zipcode</label>
+                </div>
+                <div className='profile-submit'>
+                <button type="submit" className="button is-primary">Submit</button>
+                </div>
             </form>
         </div>
     )
 }
 }
  
-
-// import React, { useState } from 'react'
-// import NavigationBar from './NavigationBar'
-
-//  const Profile = () => {
-
-//     const [name, setName] = useState('John Doe');
-//     const [email, setEmail] = useState('johndoe@gmail.com');
-//     const [phone, setPhone] = useState('(555)-555-5555');
-//     const [address1, setAddress1] = useState('1234 test Line One');
-//     const [address2, setAddress2] = useState('4567 test Line Two');
-//     const [addressCity, setAddressCity] = useState('Tacoma, WA ');
-//     const [addressZip, setAddressZip] = useState('98408');
-   
-   
-//     const handleProfileSubmit = (e) => {
-//         const updateProfile = {
-//             'First Name' : name,
-//             'Email' : email,
-//             'Phone' : phone,
-//             'Address1' : address1,
-//             'Address2' : address2,
-//             'AddressCity' : addressCity,
-//             'AddressZip' : addressZip,
-//         }
-//         // updateProfile();
-//     }
-//     handleProfileSubmit();
-//     return (
-//         <>
-//         <NavigationBar />
-//          <div>
-//              <div className="profile">
-//                  <h1 className='profile-title'> Profile </h1>
-//                  <br />
-//                  <br />
-//                  <h1 className="name"> {name} </h1>
-//                  <input type="text" placeholder="Name" className="input-form"  onChange={e => setName(e.target.value)} />
-//                  <br />
-//                  <h1 className="e-mail">  {email}</h1>
-//                  <input type="text" placeholder="Email" className="input-form" onChange={e => setEmail(e.target.value)} />
-//                  <br />
-//                  <h1 className="phone-number"> {phone} </h1>
-//                  <input type="text" placeholder="Phone" className="input-form" onChange={e => setPhone(e.target.value)} />
-//                  <br />
-//                  <p className="address">
-//                      <h1> Address: </h1>
-//                      <h1> {address1} </h1>
-//                      <h1> {address2}</h1>
-//                      <h1> {addressCity} </h1>
-//                      <h1> {addressZip} </h1>
-//                      <input type="text" placeholder="Address Line One"  className="input-form" onChange={e => setAddress1(e.target.value)} />
-//                      <input type="text" placeholder="Address Line Two" className="input-form" onChange={e => setAddress2(e.target.value)} />
-//                      <input type="text" placeholder="City" className="input-form" onChange={e => setAddressCity(e.target.value)} />
-//                      <input type="text" placeholder="Zipcode" className="input-form" onChange={e => setAddressZip(e.target.value)} />
-//                  </p>
-//                  <br />
-//                  <button className='button is-primary' onSubmit={handleProfileSubmit}>Submit</button>
-//              </div>
-//          </div>
-//         </>
-//     )
-// }
-
-// export default Profile

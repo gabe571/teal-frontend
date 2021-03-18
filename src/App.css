@@ -56,22 +56,19 @@
   margin-left: 25%;
 }
 
-.profile {
-  width: 50%;
-  margin-left: 35%;
-}
 
 .link {
   text-decoration: none;
   font-size: 20px;
 }
 
-.input-form {
+.form-control {
   border: none;
   display: block;
   font-size: 16px;
   padding: 10px;
   width: 50%;
+  margin-left: 25%;
   border-bottom: 1px solid black;
 }
 
@@ -86,6 +83,7 @@
 }
 .profile-title {
   font-size: 50px;
+  text-align: center;
 }
 
 .balance {
@@ -94,4 +92,12 @@
 
 .button-container {
   margin-left: 40%;
+}
+
+.form-group {
+  text-align: center;
+}
+
+.profile-submit {
+  margin-left: 25%;
 }
