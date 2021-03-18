@@ -15,10 +15,12 @@ class NavigationBar extends Component {
             <div className="navbar">
     <ul>
          <li>
-           <NavLink to='/layout' exact>Home</NavLink>
+           <NavLink className='nav' i class="fa fa-fw fa-home fa-3x" to='/layout'>Home </NavLink>
          </li>
+         <br />
+         <br />
          <li>
-           <NavLink to='/Profile'>Profile</NavLink>
+           <NavLink i class="fas fa-id-card fa-3x" to='/Profile'> Profile </NavLink>
          </li>
          {/* <li>
          <a id="logout" href="/" onClick={this.handleLogoutClick}>Logout</a>

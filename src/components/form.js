@@ -76,6 +76,8 @@ return (
                    </div>
                )
            })}
+           <br />
+           <br />
         <h2 className='enter-item'> Enter an Item </h2>
     <form
     onSubmit={e => {
