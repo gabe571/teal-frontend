@@ -40,7 +40,7 @@ const getBalance = () => {
     const money = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2);
     setBalance(money)
   }
-
+  
 useEffect(() => {
     getBalance()
     localStorage.setItem('list', JSON.stringify(list))
@@ -51,9 +51,7 @@ useEffect(() => {
 
 //clear transaction list
 const clearBudget = () => {
-    setList([])
-    setIncome(null)
-    setExpense(null)
+    localStorage.clear();
 }
 
 return (
