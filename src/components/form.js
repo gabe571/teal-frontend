@@ -19,7 +19,7 @@ const [transaction, setTransaction] = useState({
   const [expense, setExpense] = useState(JSON.parse(localStorage.getItem('expense')))
 
     //updates based onChange value
-const updateForm = (e) => {
+const updateBalance = (e) => {
     setTransaction({
         ...transaction,
         [e.target.name]:
@@ -68,7 +68,6 @@ return (
         <div className='totals'>
         <h2 className='balance'> Current Balance </h2>
         <h3> ${balance} </h3>
-            <h4> Income: ${income} Expense: ${expense} </h4>
         </div>
         < br />
         < br />
@@ -94,7 +93,7 @@ return (
            placeholder='Enter Transaction'
            value={Transaction.description}
            name='description'
-           onChange={updateForm}
+           onChange={updateBalance}
            >
            </input>
         </div> 
@@ -105,7 +104,7 @@ return (
          placeholder='Enter Amount'
          name='amount'
          value={transaction.amount}
-         onChange={updateForm}
+         onChange={updateBalance}
          >
         </input>
         </div>

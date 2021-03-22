@@ -91,9 +91,9 @@ render() {
                     <input type="text" name="addresszip" className="form-control" value={this.state.addresszip} onChange={this.handleChange} />
                     <label>Zipcode</label>
                 </div>
-                {/* <div className='profile-submit'>
+                <div className='profile-submit'>
                 <button type="submit" className="button is-primary">Submit</button>
-                </div> */}
+                </div>
             </form>
         </div>
     )
