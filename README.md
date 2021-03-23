@@ -1,8 +1,12 @@
 # Teal 
 
-##front-end
+## front-end
 
-###Overview
+This App was created using React, LocalStorage and Font Awsome!
+
+## Get Started
+
+### Overview
 
 Teal is a budget contious app designed to help users add transactions via localStorage, by keeping track of any income and subtracting any expenses it lets you know where you are finicially.
 
