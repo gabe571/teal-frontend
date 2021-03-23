@@ -92,7 +92,7 @@ render() {
                     <label>Zipcode</label>
                 </div>
                 <div className='profile-submit'>
-                <button type="submit" className="button is-primary">Submit</button>
+                <button type="submit">Submit</button>
                 </div>
             </form>
         </div>
