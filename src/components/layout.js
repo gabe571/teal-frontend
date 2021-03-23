@@ -1,4 +1,3 @@
-import react from 'react'
 import NavigationBar from './NavigationBar'
 import Form from './Form'
 

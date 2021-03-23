@@ -1,4 +1,4 @@
-import react, {useState, useEffect} from 'react'
+import  {useState, useEffect} from 'react'
 
 
 
@@ -23,7 +23,7 @@ const updateBalance = (e) => {
     setTransaction({
         ...transaction,
         [e.target.name]:
-         e.target.type == 'number' ? parseInt(e.target.value) : e.target.value
+         e.target.type === 'number' ? parseInt(e.target.value) : e.target.value
         })
 }
 
@@ -47,7 +47,7 @@ useEffect(() => {
     localStorage.setItem('list', JSON.stringify(list))
     localStorage.setItem('income', JSON.stringify(income))
     localStorage.setItem('expense', JSON.stringify(expense))
-  }, [list])
+  }, [])
 
 
 //clear transaction list
