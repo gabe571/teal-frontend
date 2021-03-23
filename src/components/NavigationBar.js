@@ -20,7 +20,7 @@ class NavigationBar extends Component {
          <br />
          <br />
          <li>
-           <NavLink className='profile-nav'i class="fas fa-id-card fa-3x" to='/Profile'>  </NavLink>
+           <NavLink className='nav'i class="fas fa-id-card fa-3x" to='/Profile'>  </NavLink>
          </li>
          {/* <li>
          <a id="logout" href="/" onClick={this.handleLogoutClick}>Logout</a>

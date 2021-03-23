@@ -3,13 +3,18 @@
   font-size: 100px;
   text-align: right;
   margin-left: 80%;
+  text-decoration: none;
 }
 
-.profile-nav {
-  margin-right: 500px;
+.navbar {
+  text-decoration: none;
 }
 .trans {
   text-align: center;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .list {
