@@ -25,6 +25,7 @@ handleChange= (e)=> {
 handleFormSubmit(e) {
     e.preventDefault()
    localStorage.setItem('document',JSON.stringify(this.state));
+   alert ('this has been updated!')
 }
  
 // React Life Cycle

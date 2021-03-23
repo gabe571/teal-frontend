@@ -53,6 +53,7 @@ useEffect(() => {
 //clear transaction list
 const clearBudget = () => {
     localStorage.clear();
+    alert ('Balance has been cleared, Please Refresh Page')
 }
 
 const onSubmit = e => {
