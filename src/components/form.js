@@ -52,7 +52,8 @@ useEffect(() => {
 
 //clear transaction list
 const clearBudget = () => {
-    localStorage.clear();
+  JSON.parse(localStorage.getItem('list'))
+    // localStorage.clear();
     alert ('Balance has been cleared, Please Refresh Page')
 }
 
@@ -67,7 +68,7 @@ return (
     
     <div>
         <div className='totals'>
-        <h2 className='balance'> Current Balance </h2>
+        <h2 className='balance'> Hello User, Your Current Balance </h2>
         <h3> ${balance} </h3>
         </div>
         < br />
