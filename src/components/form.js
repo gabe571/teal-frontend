@@ -1,5 +1,5 @@
 import react, {useState, useEffect} from 'react'
-import Transaction from './Transaction'
+
 
 
 const Form = () => {
@@ -91,7 +91,7 @@ return (
            type='text' 
            className="input-trans" 
            placeholder='Enter Transaction'
-           value={Transaction.description}
+           value={transaction.description}
            name='description'
            onChange={updateBalance}
            >
