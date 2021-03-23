@@ -98,3 +98,28 @@ ul {
 .profile-submit {
   margin-left: 25%;
 }
+
+.bal-sub {
+  background-color: #7fffd4;
+  color: white ;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 15px;
+}
+
+.clear-sub {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 15px;
+}
+
+.profile-sub {
+  background-color: #7fffd4;
+  color: white ;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 15px;
+  margin-right: 42%;
+}

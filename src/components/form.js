@@ -110,8 +110,8 @@ return (
         </div>
         <br/>
         <div className='button-container'>
-            <button type='submit' > Submit </button>
-            <button  onClick={clearBudget}> Clear </button>
+            <button type='submit' className='bal-sub' > Submit </button>
+            <button  onClick={clearBudget} className='clear-sub'> Clear </button>
         </div>
     </form>
     </div>
