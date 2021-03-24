@@ -1,16 +1,13 @@
-import  {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
 
-
-const Form = () => {
-
-//initial state
-const [transaction, setTransaction] = useState({
+function Form() {
+  const [transaction, setTransaction] = useState({
     description: '',
     amount: ''
   })
-  const [list, setList] = useState(
-    JSON.parse(localStorage.getItem('list')) || []
+  const [transactionList, setTransactionList] = useState(
+    JSON.parse(localStorage.getItem('transactionList')) || []
   )
   const [balance, setBalance] = useState('')
   const [income, setIncome] = useState(
@@ -18,106 +15,137 @@ const [transaction, setTransaction] = useState({
   )
   const [expense, setExpense] = useState(JSON.parse(localStorage.getItem('expense')))
 
-    //updates based onChange value
-const updateBalance = (e) => {
+  const updateForm = e => {
     setTransaction({
-        ...transaction,
-        [e.target.name]:
-         e.target.type === 'number' ? parseInt(e.target.value) : e.target.value
-        })
-}
+      ...transaction,
+      [e.target.name]:
+        e.target.type === 'number' ? parseInt(e.target.value) : e.target.value
+    })
+  }
 
-//identify if transaction is income/expense
-
-const plusMinus = () => {
-    transaction.amount > 0
-     ? setIncome(income + transaction.amount)
-      : setExpense(expense + transaction.amount)
-}
-// updates balance after transaction is added
-
-const getBalance = () => {
-    const amounts = list.map(i => i.amount);
-    const money = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2);
+  const getBalance = () => {
+    const amounts = transactionList.map(i => i.amount)
+    const money = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
     setBalance(money)
   }
-  
-useEffect(() => {
+
+  useEffect(() => {
     getBalance()
-    localStorage.setItem('list', JSON.stringify(list))
+    localStorage.setItem('transactionList', JSON.stringify(transactionList))
     localStorage.setItem('income', JSON.stringify(income))
     localStorage.setItem('expense', JSON.stringify(expense))
-  }, [])
+  }, [transactionList])
 
+  const plusMinus = () => {
+    transaction.amount > 0
+      ? setIncome(income + transaction.amount)
+      : setExpense(expense + transaction.amount)
+  }
 
-//clear transaction list
-const clearBudget = () => {
-  JSON.parse(localStorage.getItem('list'))
-    // localStorage.clear();
-    alert ('Balance has been cleared, Please Refresh Page')
-}
+  const clearBudget = () => {
+    setTransactionList([])
+    setIncome(null)
+    setExpense(null)
+    alert ('Balance has been cleared')
+  }
 
-const onSubmit = e => {
-    e.preventDefault();
-    setList([transaction, ...list])
-    plusMinus()
-    setTransaction({ description: '', amount: ''})
-    }
-
-return (
-    
+  return (
     <div>
-        <div className='totals'>
-        <h2 className='balance'> Hello User, Your Current Balance </h2>
-        <h3> ${balance} </h3>
-        </div>
-        < br />
-        < br />
-        < br />
-         <h2 className='trans-history'> Transaction History </h2>
-           {list.map(i => {
-               return (
-                   <div className='trans'>
-                       <ul  key={i.description}>
-                    {i.description} ${parseInt(i.amount)}
-                   </ul>
-                   </div>
-               )
-           })}
-           <br />
-           <br />
-        <h2 className='enter-item'> Enter an Item </h2>
-        <form onSubmit={onSubmit}>
-       <div> 
-           <input 
-           type='text' 
-           className="input-trans" 
-           placeholder='Enter Transaction'
-           value={transaction.description}
-           name='description'
-           onChange={updateBalance}
-           >
-           </input>
-        </div> 
+      <div className="container layout">
+      <div className="totals">
+        <h2 className="balance"> Welcome User, Your Current Balance:</h2>
+        <h3>${balance}</h3>
         <div>
-        <input 
-        type='number'
-         className='input-trans' 
-         placeholder='Enter Amount'
-         name='amount'
-         value={transaction.amount}
-         onChange={updateBalance}
-         >
-        </input>
+        <div>
+            <h2>History</h2>
+            {transactionList.map(i => {
+              return (
+                <table className='list'>
+                  <tbody key={i.description} >
+                    <tr>{i.description}</tr>
+                    <td>${parseInt(i.amount)}</td>
+                  </tbody>
+                </table>
+              )
+            })}
+            </div>
+          {/* <h3 className="subtitle">income</h3> */}
+          {/* <h4>${income}</h4> */}
         </div>
-        <br/>
-        <div className='button-container'>
-            <button type='submit' className='bal-sub' > Submit </button>
-            <button  onClick={clearBudget} className='clear-sub'> Clear </button>
+        <div>
+          {/* <h3 className="subtitle">expense</h3>
+          <h2>${expense}</h2> */}
         </div>
-    </form>
+      </div>
+        <div className="form">
+          <h2 className="enter-item">Enter an Item</h2>
+          <form
+            onSubmit={e => {
+              e.preventDefault()
+              setTransactionList([transaction, ...transactionList])
+              plusMinus()
+              setTransaction({ description: '', amount: '' })
+            }}
+          >
+            <div>
+              <input
+                type="text"
+                className="input-trans"
+                placeholder="Enter Transaction"
+                value={transaction.description}
+                name="description"
+                onChange={updateForm}
+              />
+            </div>
+            <input
+              type="number"
+              className="input-trans"
+              placeholder="Enter Amonut"
+              name="amount"
+              value={transaction.amount}
+              onChange={updateForm}
+            />
+            <div className='button-container'>
+              <button type="submit" className="bal-sub">
+                Submit
+              </button>
+            </div>
+          </form>
+          <div className='button-container'>
+            <button className="clear-sub" onClick={clearBudget}>
+              Clear Budget
+            </button>
+            {/* <div>
+            <h2>History</h2>
+            {transactionList.map(i => {
+              return (
+                <table>
+                  <tbody key={i.description}>
+                    <tr>{i.description}</tr>
+                    <td>${parseInt(i.amount)}</td>
+                  </tbody>
+                </table>
+              )
+            })}
+            </div> */}
+          </div>
+        </div>
+      </div>
+      {/* <div className="totals">
+        <h2 className="balance">Current Balance:</h2>
+        <h3>${balance}</h3>
+        <div>
+          <h3 className="subtitle">income</h3>
+          <h4>${income}</h4>
+        </div>
+        <div>
+          <h3 className="subtitle">expense</h3>
+          <h2>${expense}</h2>
+        </div>
+      </div> */}
     </div>
- )
+  )
 }
 
 export default Form
+
