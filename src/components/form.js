@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 
-function Form() {
+function Form(props) {
   const [transaction, setTransaction] = useState({
     description: '',
     amount: ''
@@ -23,6 +23,10 @@ function Form() {
     })
   }
 
+  const getProps = () => {
+    console.log(localStorage)
+  }
+  getProps()
   const getBalance = () => {
     const amounts = transactionList.map(i => i.amount)
     const money = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
@@ -53,7 +57,7 @@ function Form() {
     <div>
       <div className="container layout">
       <div className="totals">
-        <h2 className="balance"> Welcome User, Your Current Balance:</h2>
+        <h2 className="balance"> Welcome {localStorage.username}, Your Current Balance:</h2>
         <h3>${balance}</h3>
         <div>
         <div>
