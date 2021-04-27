@@ -15,16 +15,18 @@ ul {
 }
 
 .list {
-  list-style-type: none;
-  background-color: #fff;
-  box-shadow: var(--box-shadow);
   color: #333;
-  padding: 10px;
-  text-align: center;
-  margin: 10px 0;
-  width: 50%;
-  margin-left: 25%;
+  width: 35%;
+  margin-left: 30%;
+  text-align: right;
 }
+
+.list li {
+  text-align: center ;
+  justify-content: space-between;
+  padding: 3px;
+}
+
 
 .totals {
   text-align: center;
@@ -121,27 +123,3 @@ ul {
   margin-right: 42%;
 }
 
-/* .list {
-  list-style-type: none;
-  padding: 0;
-  margin-bottom: 40px;
-}
-
-.list li {
-  background-color: #fff;
-  box-shadow: var(--box-shadow);
-  color: #333;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-.list li.plus {
-  border-right: 10px solid #2ecc71;
-}
-
-.list li.minus {
-  border-right: 5px solid #c0392b;
-} */
