@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 
-function Form(props) {
+function Form() {
   const [transaction, setTransaction] = useState({
     description: '',
     amount: ''
@@ -24,7 +24,7 @@ function Form(props) {
   }
 
   const getProps = () => {
-    console.log(localStorage)
+    console.log(localStorage.document)
   }
   getProps()
   const getBalance = () => {
@@ -64,12 +64,9 @@ function Form(props) {
             <h2>History</h2>
             {transactionList.map(i => {
               return (
-                <table className='list'>
-                  <tbody key={i.description} >
-                    <tr>{i.description}</tr>
-                    <td>${parseInt(i.amount)}</td>
-                  </tbody>
-                </table>
+                  <ul key={i.description} className='list'>
+                    <li>{i.description} ${parseInt(i.amount)}</li>
+                  </ul>
               )
             })}
             </div>
